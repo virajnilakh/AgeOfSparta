@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class AlienPlanet here.
  * 
@@ -34,8 +34,13 @@ public class AlienPlanet extends Planet
              SpaceShip s=g.getSpaceShip();
         
         if(Greenfoot.mouseClicked(this))
-         {
-             s.setDestination(getX(),getY());
+         {  
+             for(Planet p:g.planet[Integer.parseInt(g.atPlanet.substring(0,1))][Integer.parseInt(g.atPlanet.substring(1))].path){
+                 super.path.add(p);
+            }
+             super.path.add(this);
+    
+             s.setDestination(super.path);
              g.atPlanet=name;
          }
    // World world = getWorld();     
