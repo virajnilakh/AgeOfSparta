@@ -1,5 +1,5 @@
 import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
-
+import java.util.*;
 /**
  * Write a description of class HomePlanet here.
  * 
@@ -12,7 +12,9 @@ public class HomePlanet extends Planet
     String name;
     public HomePlanet(String s)
     {
-       name=s;
+       super.path.add(this);
+        name=s;
+       
      //   this.getImage().scale(2000,2000);
     }
     

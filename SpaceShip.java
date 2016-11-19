@@ -1,5 +1,5 @@
 import greenfoot.*; 
- 
+import java.util.*;
 /**
  * Write a description of class SpaceShip here.
  * 
@@ -14,13 +14,17 @@ public class SpaceShip extends Actor implements movableObjects
     int mouseX, mouseY ;
     int dX;
     int dY;
+    GameWorld g=(GameWorld) getWorld();
+    boolean signal=true;
     public SpaceShip()
     {
         GreenfootImage image = getImage() ;
         image.scale(100,80) ;
+        dX=120;
+        dY=400;
     }
     public void act() 
-    {
+    {   
         while(this.getX()!=this.dX || this.getY()!=dY){
                  if(this.dX>this.getX()){
                      
@@ -35,7 +39,13 @@ public class SpaceShip extends Actor implements movableObjects
                     if(this.dY<this.getY()){
                     setLocation(getX(),getY()-1);
                     }
+                    if(this.getX()==this.dX || this.getY()==dY){
+                        signal=false;
+                    }
                 }
+                
+            
+         
                 
         
        /* if(Greenfoot.mouseDragged(this)) {          
@@ -55,9 +65,16 @@ public class SpaceShip extends Actor implements movableObjects
              }
         }*/
     }  
-    public void setDestination(int x,int y){
-        dX=x;
-        dY=y;
+    public void setDestination(ArrayList<Planet> a){
+        for(Planet p:a){
+            while(signal){
+                dX=p.getX();
+                dY=p.getY();
+                act();
+            }
+            signal=true;
+        }
+        
     }
     public void appear()
     {
