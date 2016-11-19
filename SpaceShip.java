@@ -12,6 +12,8 @@ public class SpaceShip extends Actor implements movableObjects
     int end;
     public boolean move;
     int mouseX, mouseY ;
+    int dX;
+    int dY;
     public SpaceShip()
     {
         GreenfootImage image = getImage() ;
@@ -19,14 +21,30 @@ public class SpaceShip extends Actor implements movableObjects
     }
     public void act() 
     {
+        while(this.getX()!=this.dX || this.getY()!=dY){
+                 if(this.dX>this.getX()){
+                     
+                    setLocation(getX()+1,getY());
+                    }
+                    if(this.dX<this.getX()){
+                    setLocation(getX()-1,getY());
+                    }
+                   if(this.dY>this.getY()){
+                    setLocation(getX(),getY()+1);
+                    }
+                    if(this.dY<this.getY()){
+                    setLocation(getX(),getY()-1);
+                    }
+                }
+                
         
-        if(Greenfoot.mouseDragged(this)) {          
+       /* if(Greenfoot.mouseDragged(this)) {          
             MouseInfo mouse = Greenfoot.getMouseInfo();  
             mouseX=mouse.getX();  
             mouseY=mouse.getY();  
             setLocation(mouseX, mouseY);  
         }
-        // Add your action code here.
+         
         if(move)
         {
              if(getY()<380 && getX()<380 )
@@ -35,9 +53,12 @@ public class SpaceShip extends Actor implements movableObjects
                  move(1);
                  setLocation(getX()+ 10, getY()-10);
              }
-        }
+        }*/
     }  
-    
+    public void setDestination(int x,int y){
+        dX=x;
+        dY=y;
+    }
     public void appear()
     {
         //To do code
