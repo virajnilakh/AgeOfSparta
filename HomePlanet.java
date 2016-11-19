@@ -9,10 +9,10 @@ import greenfoot.*;  // (World, Actor, GreenfootImage, Greenfoot and MouseInfo)
 public class HomePlanet extends Planet
 {
     GifImage planet= new GifImage("planet.gif");
-    
-    public HomePlanet()
+    String name;
+    public HomePlanet(String s)
     {
-       
+       name=s;
      //   this.getImage().scale(2000,2000);
     }
     

@@ -15,23 +15,28 @@ public class AlienPlanet extends Planet
     GifImage planet= new GifImage("alienPlanet1.gif");
     int rx=0;
     int ry=0;
+    String name;
     
+
     //Actor alien = getOneObjectAtOffset(0,0, Aliens.class);  
     /**
      * Act - do whatever the AlienPlanet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
 
-    public AlienPlanet(){
+    public AlienPlanet(String s){
   //      this.getImage().scale(50,50);
+        name=s;
     }
     public void act() 
     {
-         GameWorld g=(GameWorld) getWorld();
-        SpaceShip s=g.getSpaceShip();
-         if(Greenfoot.mouseClicked(this))
+            GameWorld g=(GameWorld) getWorld();
+             SpaceShip s=g.getSpaceShip();
+        
+        if(Greenfoot.mouseClicked(this))
          {
-             s.move= true;
+             s.setDestination(getX(),getY());
+             g.atPlanet=name;
          }
    // World world = getWorld();     
         // Add your action code here.
@@ -60,7 +65,7 @@ public class AlienPlanet extends Planet
       //  capture();
     // Greenfoot.delay(100);
     // world.removeObject(alien);
-    setImage(planet.getCurrentImage());
+    //setImage(planet.getCurrentImage());
     }    
     
     public void capture()
