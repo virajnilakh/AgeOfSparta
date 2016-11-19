@@ -52,7 +52,7 @@ public class GameWorld extends World
      //addObject(new Aliens(),660, 500);
      addObject(new Soldier(),120,350);
      addObject(s,150,350);
-     planet[1][0].onPlanet();
+     
          
      currentX=planet[Integer.parseInt(atPlanet.substring(0,1))][Integer.parseInt(atPlanet.substring(1))].getX();
      currentY=planet[Integer.parseInt(atPlanet.substring(0,1))][Integer.parseInt(atPlanet.substring(1))].getY();

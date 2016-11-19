@@ -46,7 +46,7 @@ public class AlienPlanet extends Planet
              s.setDestination(super.path);
              super.isVisited=true;
              g.setPlanet(name);
-         }else if(super.isVisited){
+         }else if(Greenfoot.mouseClicked(this) && super.isVisited){
              g.setPlanet(name);
             }
          

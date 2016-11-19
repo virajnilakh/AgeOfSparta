@@ -19,10 +19,7 @@ public class Planet extends Actor
         // Add your action code here.
       
     }    
-    public void onPlanet()
-    {
-        act();
-    }
+    
     public void gotToPlanet(){
     
     }
