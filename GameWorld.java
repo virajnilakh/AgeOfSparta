@@ -45,8 +45,7 @@ public class GameWorld extends World
      addObject(planet[0][3],880,120);
      addObject(planet[2][3],970,580);
      addObject(planet[1][4],1400,400);
-     planet[0][2].path.add(planet[1][0]);
-    planet[0][2].path.add(planet[0][1]);
+    
      //Greenfoot.playSound("background.wav"); 
      
      //addObject(new Aliens(),660, 100);
@@ -63,6 +62,9 @@ public class GameWorld extends World
     }
     Marker getMarker(){
         return marker;
+    }
+    public void setPlanet(String s){
+        atPlanet=s;
     }
     void prepare()
     {

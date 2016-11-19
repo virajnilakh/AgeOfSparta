@@ -39,9 +39,10 @@ public class SpaceShip extends Actor implements movableObjects
                     if(this.dY<this.getY()){
                     setLocation(getX(),getY()-1);
                     }
-                    if(this.getX()==this.dX || this.getY()==dY){
+                    if(this.getX()==this.dX && this.getY()==dY){
                         signal=false;
                     }
+                    Greenfoot.delay(1);
                }
                 
             
@@ -71,7 +72,12 @@ public class SpaceShip extends Actor implements movableObjects
                 dX=p.getX();
                 dY=p.getY();
                 act();
+                if(this.getX()==this.dX && this.getY()==dY){
+                        signal=false;
+                    }
             }
+            
+            Greenfoot.delay(10);
             signal=true;
         }
 
@@ -80,7 +86,11 @@ public class SpaceShip extends Actor implements movableObjects
                 dX=a.get(i).getX();
                 dY=a.get(i).getY();
                 act();
+                if(this.getX()==this.dX && this.getY()==dY){
+                        signal=false;
+                    }
             }
+            Greenfoot.delay(10);
             signal=true;
         } 
     }

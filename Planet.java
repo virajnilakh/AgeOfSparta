@@ -13,6 +13,7 @@ public class Planet extends Actor
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
     ArrayList<Planet> path=new ArrayList<Planet>();
+    boolean isVisited=false;
     public void act() 
     {
         // Add your action code here.

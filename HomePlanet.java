@@ -10,12 +10,14 @@ public class HomePlanet extends Planet
 {
     GifImage planet= new GifImage("planet.gif");
     String name;
+    
     public HomePlanet(String s)
     {
        super.path.add(this);
         name=s;
-       
-     //   this.getImage().scale(2000,2000);
+        super.isVisited=true;
+       setImage(planet.getCurrentImage());
+       getImage().scale(200,200);
     }
     
     /**
@@ -27,6 +29,10 @@ public class HomePlanet extends Planet
     {
         // Add your action code here.
        // getWorld().addObject(new Marker(),550,100);
-        setImage(planet.getCurrentImage());
+       GameWorld g=(GameWorld) getWorld();
+        
+        if(Greenfoot.mouseClicked(this) && super.isVisited){
+            g.setPlanet(name);
+        }
     }    
 }

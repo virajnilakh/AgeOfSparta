@@ -33,19 +33,23 @@ public class AlienPlanet extends Planet
             GameWorld g=(GameWorld) getWorld();
              SpaceShip s=g.getSpaceShip();
         
-        if(Greenfoot.mouseClicked(this))
+        if(Greenfoot.mouseClicked(this) && !super.isVisited)
          {  
-             /*for(Planet p:g.planet[Integer.parseInt(g.atPlanet.substring(0,1))][Integer.parseInt(g.atPlanet.substring(1))].path){
+             for(Planet p:g.planet[Integer.parseInt(g.atPlanet.substring(0,1))][Integer.parseInt(g.atPlanet.substring(1))].path){
                  super.path.add(p);
-            }*/
+            }
             
              super.path.add(this);
             /* for(int i=g.planet[Integer.parseInt(g.atPlanet.substring(0,1))][Integer.parseInt(g.atPlanet.substring(1))].path.size()-1;i>=0;i--){
                  super.path.add(g.planet[Integer.parseInt(g.atPlanet.substring(0,1))][Integer.parseInt(g.atPlanet.substring(1))].path.get(i));
                 } */
              s.setDestination(super.path);
-             g.atPlanet=name;
-         }
+             super.isVisited=true;
+             g.setPlanet(name);
+         }else if(super.isVisited){
+             g.setPlanet(name);
+            }
+         
    // World world = getWorld();    
         // Add your action code here.
      
