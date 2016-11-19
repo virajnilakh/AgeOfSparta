@@ -26,7 +26,7 @@ public class SpaceShip extends Actor implements movableObjects
     public void act() 
     {   
         while(this.getX()!=this.dX || this.getY()!=dY){
-                 if(this.dX>this.getX()){
+                if(this.dX>this.getX()){
                      
                     setLocation(getX()+1,getY());
                     }
@@ -42,7 +42,7 @@ public class SpaceShip extends Actor implements movableObjects
                     if(this.getX()==this.dX || this.getY()==dY){
                         signal=false;
                     }
-                }
+               }
                 
             
          
@@ -66,7 +66,7 @@ public class SpaceShip extends Actor implements movableObjects
         }*/
     }  
     public void setDestination(ArrayList<Planet> a){
-        for(Planet p:a){
+       for(Planet p:a){
             while(signal){
                 dX=p.getX();
                 dY=p.getY();
@@ -74,7 +74,15 @@ public class SpaceShip extends Actor implements movableObjects
             }
             signal=true;
         }
-        
+
+        for(int i=a.size()-2;i>=0;i--){
+            while(signal){
+                dX=a.get(i).getX();
+                dY=a.get(i).getY();
+                act();
+            }
+            signal=true;
+        } 
     }
     public void appear()
     {
