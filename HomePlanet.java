@@ -10,16 +10,26 @@ public class HomePlanet extends Planet
 {
     GifImage planet= new GifImage("planet.gif");
     String name;
-    
-    public HomePlanet(String s)
+    public HomePlanet()
     {
-       super.path.add(this);
+       
+     //   this.getImage().scale(2000,2000);
+    }
+    public HomePlanet(int planetNumber,HashMap<Integer,Integer> adjMatrix,int xLoc,int yLoc,String s){
+     super();
+        this.xLoc=xLoc;
+        this.yLoc=yLoc;
+        this.planetNumber=planetNumber;
+        this.neighbourMatrix=adjMatrix;
+        this.isClickable=true;
+        this.isCaptured=true;
+        super.path.add(this);
         name=s;
         super.isVisited=true;
        setImage(planet.getCurrentImage());
-       getImage().scale(200,200);
-    }
+       
     
+    }
     /**
      * Act - do whatever the HomePlanet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
@@ -27,12 +37,36 @@ public class HomePlanet extends Planet
     
     public void act() 
     {
-        // Add your action code here.
-       // getWorld().addObject(new Marker(),550,100);
-       GameWorld g=(GameWorld) getWorld();
         
-        if(Greenfoot.mouseClicked(this) && super.isVisited){
-            g.setPlanet(name);
-        }
-    }    
+        capture();
+        setImage(planet.getCurrentImage());
+    } 
+    public String getName(){
+        return this.name;
+    }
+    public void capture()
+    { GameWorld g=(GameWorld) getWorld();
+          SpaceShip s=g.getSpaceShip();
+              if(Greenfoot.mouseClicked(this))
+         {   
+             s.setEarth(g.planet[Integer.parseInt(g.atPlanet.substring(0,1))][Integer.parseInt(g.atPlanet.substring(1))].path);
+                  
+             g.setPlanet(name);
+             g.selectedPlanetId=planetNumber;
+             g.isSourceSelected=true;
+            
+             
+            
+         }
+            
+            Set<Integer> keys=neighbourMatrix.keySet();
+            for(Integer k:keys){
+             g.activateNeighbour(k);
+       
+    }
+    
+ 
+    
+    }
+   
 }

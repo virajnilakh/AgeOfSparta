@@ -7,20 +7,42 @@ import java.util.*;
  * @version (a version number or a date)
  */
 public class Planet extends Actor
-{
+{   //status of planet
+   // String Status="NotCaptured";
+    public boolean isCaptured= false;
+    public boolean isClickable=false;
+    public int planetNumber;
+    public int xLoc;
+    public int yLoc;
+    public HashMap<Integer,Integer> neighbourMatrix = new HashMap<Integer,Integer>();
+    ArrayList<Planet> path=new ArrayList<Planet>();
+    boolean isVisited=false;
     /**
      * Act - do whatever the Planet wants to do. This method is called whenever
      * the 'Act' or 'Run' button gets pressed in the environment.
      */
-    ArrayList<Planet> path=new ArrayList<Planet>();
-    boolean isVisited=false;
+   
     public void act() 
     {
         // Add your action code here.
       
     }    
-    
+    public void onPlanet()
+    {
+        act();
+    }
     public void gotToPlanet(){
     
     }
+    public String getName(){
+        return "";
+    }
+    //marks the planet as captured
+    public void capture(){
+    
+        //Status="Captured";
+    
+    }
+    
+    
 }
